@@ -1,0 +1,169 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+h1 {
+  margin-top: 30px;
+  width: 100%;
+  color: rgb(0, 110, 255);
+}
+
+.add-user {
+  padding: 0.25rem 0.75rem;
+  background: rgb(124, 214, 255);
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.875rem;
+  box-shadow: inset 0 0 10px rgb(49, 190, 255), -1px 1px 3px rgba(0,0,0,0.25);
+  border: 1px solid #fff;
+  border-radius: 25px;
+  position: fixed;
+  z-index: 10;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  transition: all 0.25s linear;
+
+  &:hover {
+    color: #fff;
+    background: orange;
+    box-shadow: inset 0 0 10px darkorange, -1px 1px 3px rgba(0,0,0,0.25);
+  }
+}
+
+.user-card {
+  min-width: 180px;
+  max-width: 300px;
+  width: calc(33% - 2.5rem);
+  margin: 1.25rem;
+  padding: 1.25rem;
+  background: rgb(75, 50, 35);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+
+  &.new {
+    animation: open 0.75s linear forwards;
+
+    input {
+      margin-bottom: 0.375rem;
+    }
+  }
+
+  @keyframes open {
+    0% {
+      min-width: 0;
+      width: 0;
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+    }
+    50% {
+      min-width: 180px;
+      width: calc(33% - 2.5rem);
+      margin: 1.25rem;
+      padding: 1.25rem;
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  h2 {
+    margin-top: 0;
+    font-size: 1.125rem;
+  }
+
+  p, dt, dd {
+    color: rgb(196, 180, 172);
+    font-size: 0.675rem;
+  }
+
+  dt, dd {
+    width: 50%;
+    margin: 0;
+    font-size: 0.5rem;
+    display: inline-block;
+  }
+  
+  dt {
+    padding-right: 0.875rem;
+    text-align: right;
+    font-weight: bold;
+    vertical-align: top;
+  }
+
+  p { 
+    text-align: left;
+  }
+
+  dl {
+    margin: 0;
+    text-align: left;
+  }
+
+  .edit {
+    $edit-margin: 10px;
+    font-style: italic;
+    font-size: 0.5rem;
+    color: #ccc;
+    cursor: pointer;
+    position: absolute;
+    right: $edit-margin;
+    top: $edit-margin;
+
+    &:hover {
+      color: rgb(255, 208, 0);
+      text-decoration: underline;
+    }
+  }
+
+  form {
+    padding-top: 0.5rem;
+
+    input, textarea {
+      width: 100%;
+      padding: 0.25rem 0.375rem;
+      background-color: rgb(162, 202, 255);
+      color: rgb(0, 52, 121);
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: inset 0 0 5px rgba(0, 52, 121, 0.5);
+    }
+
+    textarea {
+      margin-bottom: 0.5rem;
+    }
+
+    button {
+      margin: 0.5rem 0.5rem 0;
+      padding: 0.25rem 0.875rem 0.375rem;
+      background: transparent;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.25s linear;
+
+      &:hover {
+        background: rgb(255, 62, 62);
+        border-color: rgb(255, 62, 62);
+      }
+
+      &[type="submit"] {
+        background: darkorange; 
+        border-color: darkorange;
+
+        &:hover {
+          background: orange; 
+          border-color: orange;
+        }
+      }
+    }
+  }
+}
